@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Manraj</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        nav {
+            background: #fff;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #333;
+        }
+
+
+        .container {
+            max-width: 900px;
+            margin: 4rem auto 2rem;
+            padding: 0 1rem;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: baseline;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            margin-left: 15px;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 1rem;
+            margin-left: 15px;
+        }
+
+        .icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+
+        .icon-placeholder {
+            width: 24px;
+            height: 24px;
+            background: #ddd;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .icon-placeholder:hover {
+            transform: translateY(-2px);
+        }
+        .social-icon {
+                color: #666;
+                transition: all 0.3s ease;
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+            }
+
+            .social-icon:hover {
+                color: #373737;
+                transform: translateY(-2px);
+            }
+
+            .social-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+        /* Columns Layout */
+        .columns {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr;
+            gap: 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .column {
+            padding: 0;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #222;
+        }
+
+        .column p {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+        }
+        .projects {
+            margin: 4rem auto;
+            max-width: 900px;
+            padding: 0 1rem;
+        }
+
+        .projects h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .projects h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #666;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Remove old link styles */
+
+        .project-link h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-link p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .github-link {
+            color: #2563eb;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .project-link:hover .github-link {
+            color: #1d4ed8;
+        }
+        .section-separator {
+            max-width: 700px;
+            margin: 4rem auto;
+            border-top: 2px solid #eee;
+        }
+
+        /* Remove the underline from projects heading */
+        .projects h2::after {
+            content: none;
+        }
+
+        /* Adjust projects heading margin */
+        .projects h2 {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .columns {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .header {
+                grid-template-columns: 1fr;
+            }
+
+            .icons {
+                justify-content: flex-start;
+                margin-top: 1rem;
+            }
+
+            .column p {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header">
+            <div>
+                <h1>Manraj</h1>
+                <p class="title">Aspiring software developer</p>
+            </div>
+
+            <div class="icons">
+
+                <a href="https://github.com/rnpannu?tab=repositories" class="social-icon" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+
+                <!-- LinkedIn Button -->
+                <a href="https://www.linkedin.com/in/manrajpannu/" class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <div class="columns">
+            <div class="column">
+                <h3>About me</h3>
+                <p>I am a student at the University of Lethbridge graduating next year with a Bachelor of Science in Computer Science. I aim to strengthen my candidacy by demonstrating both my experience developing applications and my capacity for growth.</p>
+                <p>I enjoy learning about how software development is done in the workplace, and am getting a taste of it by developing full stack webapps with some popular frameworks. Some other areas I enjoy are computer graphics, networking, and functional programming.</p>
+                <p>I recognize that my value as a junior developer comes from my ability to improve my skills and grow and adapt on the fly. It is my goal to take ownership of this investment and develop the capabilities to add meaningful value to a workplace.</p>
+            </div>
+
+            <div class="column">
+                <h3>What I'm working on</h3>
+                <p>I am currently focused on improving my full stack programming knowledge. I have created some webapps with popular frameworks, such as this portfolio, which I made with Python & Django. I have also dipped my feet into Spring Boot development which I used to create my Blog platform. </p>
+                <p>I am currently working on improving my understanding of security through integrating Spring Security for authentication and authorization and services such as Keycloak for user management. </p>
+                <p>In the future I have my sights set on creating a mobile app, likely with a Springboot back end. This would work nicely to integrate Kotlin into my current workflow and gain mobile development skills.</p>
+                <p>On the flipside I am exercising my programming muscles with game programming - both high level game logic and low level graphics programming. Stay tuned to see further results on a 2D platformer made with Love2D and Lua (medium term), and a custom game engine written with C and the Vulkan graphics API (long term).</p>
+            </div>
+        </div>
+        <div class="section-separator"></div>
+
+<!-- Update the projects section heading -->
+<section class="projects">
+    <h2>Projects</h2>
+        <div class="project-grid">
+
+</div>
+    </section>
+    </div>
+<script>
+
+    function truncateText(text, maxWords = 15) {
+                if (!text) return 'No description provided';
+
+                const words = text.trim().split(/\s+/); // Split on any whitespace
+                if (words.length <= maxWords) return text;
+
+                return words.slice(0, maxWords).join(' ') + '...';
+            }
+
+async function loadProjects() {
+        try {
+            const response = await fetch('https://api.github.com/users/rnpannu/repos');
+            const repos = await response.json();
+
+
+            const manualOrder = [
+                "blog",
+                "rnpannu.github.io",
+                "SlidingWindow",
+                "tasks",
+                "Connect4",
+                "PolynomialOperations"
+            ];
+
+            // Filter and sort repositories
+            const filteredRepos = repos
+                .filter(repo =>
+                    !repo.fork &&
+                    manualOrder.includes(repo.name)
+                )
+                .sort((a, b) =>
+                    manualOrder.indexOf(a.name) - manualOrder.indexOf(b.name)
+                )
+                .slice(0, 6); // Limit to 6 projects
+
+            const container = document.querySelector('.project-grid');
+            container.innerHTML = '';
+
+            filteredRepos.forEach(repo => {
+                const card = `
+                    <div class="project-card">
+                        <a href="${repo.html_url}" target="_blank" class="project-link">
+                            <h3>${repo.name.replace(/-/g, ' ')}</h3> <!-- Convert hyphens to spaces -->
+                            <p>${repo.description || 'No description provided'}</p>
+                        </a>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', card);
+            });
+
+
+        } catch (error) {
+            console.error('Error loading projects:', error);
+            document.querySelector('.projects').innerHTML = `
+                <p style="color: #666; text-align: center">
+                    Failed to load projects. Please check your network connection.
+                </p>
+            `;
+        }
+    }
+
+    // Call the function when the page loads
+    window.addEventListener('DOMContentLoaded', loadProjects);
+</script>
+</body>
+</html>
